@@ -3,7 +3,6 @@ package com.simplilearn.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePage {
@@ -31,11 +30,4 @@ public class BasePage {
         driver.findElement(byObject).sendKeys(data);
         driver.findElement(byObject).sendKeys(Keys.ENTER);
     }
-
-//    public void selectElementfromDropDown(By byObject, String locationToselect){
-//        Select location = new Select(driver.findElement(byObject));
-//        location.selectByVisibleText(locationToselect);
-//        System.out.println("BasePage--> locationToselect--->"+locationToselect + " location --> " +location);
-//    }
-
 }

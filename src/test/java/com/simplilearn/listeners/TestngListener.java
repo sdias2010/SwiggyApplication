@@ -1,7 +1,6 @@
 package com.simplilearn.listeners;
 
 import com.simplilearn.reports.ExtentTestManager;
-import io.cucumber.java.Scenario;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;

@@ -20,23 +20,10 @@ public class SeleniumDriverManager {
         return driver;
     }
 
-//    public void setupDriver(String browser){
-//        String browserType = Configuration.getProperty("browserType");
-//        switch (browserType){
-//            case "CHROME":
-//                System.out.println("RUNNING CHROME BROWSER!!");
-//                driver = setupChromeDriver(browser);
-//            case "REMOTE":
-//                System.out.println("RUNNING REMOTE BROWSER");
-//                setupRemoteWebDriver(browser);
-//        }
-//    }
-
     private void setupRemoteWebDriver(String browserName){
         URL url = null;
         String server = Configuration.getProperty("hubIP");
         String port = Configuration.getProperty("hubPort");
-//        String browserName = Configuration.getProperty("browserName");
         try {
             url = new URL("http://"+server+":"+port+"/wd/hub");
         } catch (MalformedURLException e) {
@@ -57,12 +44,4 @@ public class SeleniumDriverManager {
             driver = new RemoteWebDriver(url, capabilities);
         }
     }
-
-//    private ChromeDriver setupChromeDriver(String browser){
-//        System.out.println("setupChromeDriver --> " +browser);
-//        String projectFolderPath = System.getProperty("user.dir");
-//        String chromeDriverPath = projectFolderPath + "/drivers/chromedriver.exe";
-//        System.setProperty("webdriver.chrome.driver", chromeDriverPath);
-//        return new ChromeDriver();
-//    }
 }

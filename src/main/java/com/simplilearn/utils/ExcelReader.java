@@ -7,6 +7,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -15,9 +16,12 @@ import java.util.Map;
 public class ExcelReader {
 
     private XSSFWorkbook openWorkbook(String excelFilePath) throws Throwable{
-        File excelFile = new File(excelFilePath);
-        FileInputStream excelFileStream = new FileInputStream(excelFile);
-        return new XSSFWorkbook(excelFileStream);
+//        File excelFile = new File(excelFilePath);
+//        FileInputStream excelFileStream = new FileInputStream(excelFile);
+
+        InputStream inputStream = ExcelReader.class.getResourceAsStream(excelFilePath);  //setup for jar
+
+        return new XSSFWorkbook(inputStream);
     }
 
     public XSSFSheet getSheetByIndex(String excelFilePath, int sheetIndex) throws Throwable{
@@ -70,17 +74,4 @@ public class ExcelReader {
         }
         return colMapdata;
     }
-
-//    public static void main(String[] args) throws Throwable {
-//        String projectFolderpath = System.getProperty("user.dir");
-//        String excelFilePath = projectFolderpath + "/datafiles/datafile.xlsx";
-//
-//        XSSFWorkbook workbook = openWorkbook(excelFilePath);
-//        XSSFSheet sheet = workbook.getSheetAt(0);
-//
-//        List<Map<String, String>> testData = ReadExcelSheet(sheet);
-//        System.out.println(testData.get(0).get("Location"));
-//
-//
-//    }
 }

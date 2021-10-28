@@ -7,12 +7,13 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 
 @CucumberOptions(
-        features = "classpath:features",
+        //features = "classpath:features",
+        features = "classpath:resources/features",  //setup for jar file
         glue = "com.simplilearn.steps",
         tags = "@Sanity",
         plugin = {"pretty",
-                "html:target/reports/cucumber/cucumber-report.html",
-                "json:target/reports/cucumber/cucumber-report.json"}
+                "html:reports/cucumber/cucumber-report.html",
+                "json:reports/cucumber/cucumber-report.json"}
 )
 
 public class TestRunnerRegression extends AbstractTestNGCucumberTests {
@@ -23,7 +24,7 @@ public class TestRunnerRegression extends AbstractTestNGCucumberTests {
     public void beforeSuite(){
         System.out.println("TestRunner----> @BeforeSuite");
         String pathOfProject = System.getProperty("user.dir");
-        ExtentTestManager.setExtentReports(pathOfProject+"/target/reports/extent/extentReport.html");
+        ExtentTestManager.setExtentReports(pathOfProject+"/reports/extent/extentReport.html");
     }
     @DataProvider
     @Override
@@ -33,7 +34,7 @@ public class TestRunnerRegression extends AbstractTestNGCucumberTests {
     @Parameters({"browser"})
     public void startupBrowser(String browser){
         System.out.println("TestRunner----> @BeforeMethod " +browser);
-        testDriver = new SeleniumDriverManager().getDriver(browser);
+        testDriver = new com.simplilearn.SeleniumDriverManager().getDriver(browser);
         testDriver.manage().window().maximize();
     }
 

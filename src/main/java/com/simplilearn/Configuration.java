@@ -12,9 +12,11 @@ public class Configuration {
     static void loadPropertiesIfNotLoadedAlready(){
         if(properties == null){
             properties = new Properties();
-            String propFilePath = System.getProperty("user.dir") + "/src/test/resources/" + PROJECT_PROPERTY_FILE;
+            //String propFilePath = System.getProperty("user.dir") + "/src/test/resources/" + PROJECT_PROPERTY_FILE;
+            String propFilePath = "/resources/" + PROJECT_PROPERTY_FILE; //setup for jar file
             try {
-                InputStream inputStream = new FileInputStream(propFilePath);
+                //InputStream inputStream = new FileInputStream(propFilePath);
+                InputStream inputStream = Configuration.class.getResourceAsStream(propFilePath);
                 properties.load(inputStream);
             } catch (IOException e) {
                 e.printStackTrace();
