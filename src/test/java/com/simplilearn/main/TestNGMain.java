@@ -1,27 +1,40 @@
 package com.simplilearn.main;
 
-import com.simplilearn.TestRunnerRegression;
-import com.simplilearn.steps.SignUpFormStepdefs;
-import org.testng.TestNG;
-
-import java.util.ArrayList;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
+import org.testng.TestNG;
+import org.testng.xml.Parser;
+import org.testng.xml.XmlSuite;
+
+
 public class TestNGMain {
-    static TestNG testNG;
-    public static void main(String[] args) {
-//        String testngxml = System.getProperty("user.dir")+"/testngRegression.xml";
-//        System.out.println("File path" +testngxml);
-//        System.out.println("Started!");
-//        TestNG testNG = new TestNG();
-//        List<String> suites = new ArrayList<>();
-//        suites.add(testngxml);
-//        testNG.setTestSuites(suites);
-//        testNG.run();
 
-        testNG = new TestNG();
+    public static void main(String[] args){
 
-        testNG.setTestClasses(new Class[] {TestRunnerRegression.class});
-        testNG.run();
+        TestNG testNG = new TestNG();
+
+        String testngxml = "/resources/testngRegression.xml";
+
+        InputStream testinputstream = TestNG.class.getResourceAsStream(testngxml);
+
+
+        List<XmlSuite> suite;
+
+        try {
+            suite = (List<XmlSuite>)new Parser(testinputstream).parse();
+
+            System.out.println("Suites Name :- " +suite.toString());
+
+            testNG.setXmlSuites(suite);
+
+
+            testNG.run();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
     }
 }
