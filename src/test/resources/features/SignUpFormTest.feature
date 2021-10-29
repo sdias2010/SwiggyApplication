@@ -1,6 +1,6 @@
 Feature: Test Swiggy application Signup Form Functionality
 
-  @Regression @Sanity
+  @Regression
   Scenario: User is able to enter credentials
     Given user has opened swiggy homepage
     When user clicks on the Sign up button on homepage

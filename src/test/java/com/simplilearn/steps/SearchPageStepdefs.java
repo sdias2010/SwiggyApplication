@@ -20,7 +20,8 @@ public class SearchPageStepdefs {
     RestaurantsPage restaurantsPage = new RestaurantsPage(TestRunnerRegression.testDriver);
 
     String projectFolderpath = System.getProperty("user.dir");
-    String excelFilePath = projectFolderpath + "/datafiles/datafile.xlsx";
+    //String excelFilePath = projectFolderpath + "/datafiles/datafile.xlsx";
+    String excelFilePath = "/resources/datafiles/datafile.xlsx"; //setup for jar file
     ExcelReader reader = new ExcelReader();
 
     String restaurantName;

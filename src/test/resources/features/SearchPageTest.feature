@@ -1,6 +1,6 @@
 Feature: Checks Swiggy Application Search page Functionality
 
-  @Regression
+  @Sanity
   Scenario Outline: User is able to search the food item
     Given user has opened swiggy homepage
     When user enters the location "Mumbai"

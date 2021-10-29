@@ -17,7 +17,8 @@ public class EnterDeliveryLocationStepdefs {
     HomePage homePage = new HomePage(TestRunnerRegression.testDriver);
 
     String projectFolderpath = System.getProperty("user.dir");
-    String excelFilePath = projectFolderpath + "/datafiles/datafile.xlsx";
+    //String excelFilePath = projectFolderpath + "/datafiles/datafile.xlsx";
+    String excelFilePath = "/resources/datafiles/datafile.xlsx"; //setup for jar file
     ExcelReader reader = new ExcelReader();
 
     @When("user enters the location from the sheet {string} and {int}")
